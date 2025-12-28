@@ -1,0 +1,141 @@
+.sectionAgendamento {
+    min-height: 100vh;
+    background-color: rgb(245, 247, 249);
+    padding: 4rem 0;
+}
+
+.sectionAgendamento p {
+    font-size: 1.2rem;
+    color: #66676c;
+}
+
+.sectionAgendamento label {
+    font-size: 1.2rem;
+}
+
+.divTitulo {
+    text-align: center;
+    padding-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.divPaiContatos {
+    display: flex;
+    gap: 3rem;
+    padding: 1rem 2rem;
+}
+
+.divFormulario {
+    background-color: rgb(255, 255, 255);
+    width: 50%;
+    padding: 3rem;
+    border-radius: 10px;
+    box-shadow: 1px 10px 20px rgb(202, 199, 199);
+}
+
+.divFormulario form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 2rem;
+    height: 100%;
+}
+
+.divInput {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.divInput input {
+    height: 3rem;
+    border: solid 1px rgb(194, 194, 194);
+    border-radius: 10px;
+    padding: 0 1rem;
+}
+
+.divInput input:focus {
+    outline: none;
+    border: solid 4px #f8207a;
+}
+
+.divInput select {
+    height: 3rem;
+    border: solid 1px rgb(194, 194, 194);
+    border-radius: 10px;
+    padding-left: 1rem;
+}
+
+.divInput select:focus {
+    outline: none;
+    border: solid 4px #f8207a;
+}
+
+.divInputData {
+    display: flex;
+    gap: 2rem;
+}
+
+.divInputData div {
+    width: 100%;
+}
+
+.divInput textarea {
+    border: solid 1px rgb(194, 194, 194);
+    border-radius: 10px;
+}
+
+.divInput textarea:focus {
+    outline: none;
+    border: solid 4px #f8207a;
+}
+
+.divFormulario form button {
+    height: 4rem;
+    background-color: #f8207a;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.3rem;
+}
+
+.divFormulario form button:hover {
+    background-color: #a30d4b;
+}
+
+
+.divEndereco {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.divInformacao {
+    background-color: #FFE4F2;
+    padding: 3rem 2rem;
+    border-radius: 10px;
+}
+
+.divInformacao p {
+    font-size: 1.2rem;
+    line-height: 2rem;
+    padding-top: 1rem;
+    color: #66676c;
+}
+
+@media (max-width: 1024px) {
+    .divPaiContatos {
+        display: flex;
+        flex-direction: column;
+        padding: 0 clamp(1rem, 5%, 4rem);
+    }
+    .divFormulario {
+        width: 100%;
+    }
+    .divEndereco {
+        width: 100%;
+    }
+}

@@ -1,0 +1,112 @@
+
+.footer {
+    min-height: 40vh;
+    background-color: rgb(17, 22, 41);
+    color: aliceblue;
+    font-size: 1.2rem;
+}
+
+.footer p {
+    color: #878a9a;
+}
+
+.footer a {
+    color: #878a9a;
+    text-decoration: none;
+}
+
+.divFooterPai {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 15rem 10rem;
+    justify-items: center;
+    padding: 2rem 2rem 0 2rem;
+}
+
+.divSlogan img {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.divSlogan a {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: #f70aa8;
+}
+
+.divSlogan p {
+    padding-top: .9rem;
+}
+
+.divSlogan {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.divLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.divLinks ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    list-style: none;
+}
+
+.divLinks ul a:hover {
+    color: #db2a73;
+}
+
+.divRedeSocial {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.divRedeSocial a img {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.divRedeSocial a {
+    background-color: #23273d;
+    padding: 1rem;
+    border-radius: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.divRedeSocial a:hover {
+    background-color: #db2a73;
+}
+
+.divRedeSocial div {
+    display: flex;
+    gap: 2rem;
+}
+
+.pDireitos {
+    grid-column: 1/4;
+    padding: 3rem;
+    border-top: solid 2px rgb(39, 44, 59);
+    width: 100%;
+    text-align: center;
+    margin: auto;
+}
+
+
+@media (max-width: 900px) {
+    .divFooterPai {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+

@@ -1,0 +1,44 @@
+
+.divCardImg img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.divCardImg {
+    height: 25rem;
+    width: 25rem;
+    border-radius: 1rem;
+    background-color: #000;
+    overflow: hidden;
+    position: relative;
+    margin: 1rem;
+
+    z-index: 1;
+}
+
+.divCardImg img:hover {
+    transform: scale(1.2);
+    mask-image: linear-gradient(to bottom, #000 10%, rgba(0, 0, 0, 0.01) 90%);
+
+}
+
+.divCardImg img:hover + p {
+    display: block;
+}
+
+.divCardImg p {
+     position: absolute;
+     left: 1rem;
+     bottom: 0;
+     padding-bottom: 1.5rem;
+     color: rgb(255, 255, 255);
+     display: none;
+}
+
+@media (max-width: 864px) {
+    .divCardImg {
+        width: 100%;
+    }
+}

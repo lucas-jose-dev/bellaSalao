@@ -1,0 +1,22 @@
+.sectionGaleria {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.sectionGaleria > p {
+    padding-bottom: 1rem;
+    color: #66676c;
+    font-size: 1.2rem;
+}
+
+.divGaleria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

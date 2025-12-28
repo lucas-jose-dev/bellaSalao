@@ -1,0 +1,42 @@
+
+.section {
+    min-height: 100vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section p {
+    color: #c7c8cf;
+}
+
+.divSlogan {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+}
+
+.divSlogan p:nth-of-type(2) {
+    font-size: 1.5rem;
+    width: 90%;
+}
+
+.divSlogan p:nth-of-type(1) {
+    font-size: 1.2rem;
+}
+
+.divSlogan a {
+    text-decoration: none;
+    color: rgb(236, 234, 234);
+    background-color: #e11f70;
+    padding: 1rem 2rem;
+    border-radius: 10rem;
+}
+
+.divSlogan a:hover {
+    background-color: #a30d4b;
+}

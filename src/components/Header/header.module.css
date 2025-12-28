@@ -1,0 +1,109 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 2;
+}
+
+.divHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.divName {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.divName img {
+    height: 2.5rem;
+    width: 2.5rem;
+}
+
+.divName a {
+    color: #f70aa8;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.divLinks {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.divLinks a {
+    text-decoration: none;
+    color: #5d5f68;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+}
+
+.divLinks a:hover {
+    color: #f70aa8;
+}
+
+
+
+.divLinks .linkButton {
+    color: white;
+    background-color: #f8207a;
+    padding: 1rem 2rem;
+    border-radius: 10rem;
+}
+
+.divLinks .linkButton:hover {
+    background-color: #a30d4b;
+    color: rgb(182, 178, 178);
+}
+
+.menuHabur {
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+@media (min-width: 700px) {
+    .menuHabur {
+        display: none;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .falseMenu {
+        display: none;
+    }
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .divHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90vw;
+    }
+
+    .trueMenu {
+        display: flex;
+        flex-direction: column;
+        gap: 1.4rem;
+    }
+
+    .divLinks a {
+        width: 90vw;
+    }
+
+    .divLinks .linkButton {
+        padding: 1rem 0;
+        text-align: center;
+    }
+}

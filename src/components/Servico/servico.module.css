@@ -1,0 +1,55 @@
+.sectionServico {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(245, 247, 249);
+    gap: 6rem;
+    padding: 4rem 0;
+}
+
+.divSlogan {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 4rem;
+    gap: 2rem;
+}
+
+.divSlogan p {
+    font-size: 1.2rem;
+    color: #66676c;
+}
+
+.divCard {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 2rem;
+}
+
+.divCard p {
+    color: #66676c;
+    line-height: 2rem;
+    font-size: 1.2rem;
+}
+
+.divCard ul {
+    padding-left: 1.3rem;
+    display: grid;
+    gap: 1rem;
+    color: #66676c;
+    font-size: 1.2rem;    
+}
+
+.divCard ul li::marker {
+    color: #f70aa8;
+}
+
+@media(max-width: 810px) {
+    .divCard {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+
