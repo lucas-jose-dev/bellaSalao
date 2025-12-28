@@ -113,6 +113,11 @@
     gap: 2rem;
 }
 
+.divEndereco > p {
+    color: black;
+    font-weight: 600;
+}
+
 .divInformacao {
     background-color: #FFE4F2;
     padding: 3rem 2rem;
@@ -137,5 +142,12 @@
     }
     .divEndereco {
         width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .divInputData {
+        display: flex;
+        flex-direction: column;
     }
 }
