@@ -23,15 +23,15 @@ export default function Agendamento() {
                         <form action="">
                             <div className={styles.divInput}>
                                 <label htmlFor="nome">Nome Completo</label>
-                                <input type="text" id="nome" />
+                                <input type="text" required id="nome" />
                             </div>
                             <div className={styles.divInput}>
                                 <label htmlFor="email">E-mail</label>
-                                <input type="email" name="" id="email" />
+                                <input type="email"required name="" id="email" />
                             </div>
                             <div className={styles.divInput}>
                                 <label htmlFor="telefone">Telefone</label>
-                                <input type="tel" name="" id="telefone" />
+                                <input type="tel" required name="" id="telefone" />
                             </div>
                             <div className={styles.divInput}>
                                 <label htmlFor="servico">Serviço Desejado</label>
@@ -47,11 +47,11 @@ export default function Agendamento() {
                             <div className={styles.divInputData}>
                                 <div className={styles.divInput}>
                                     <label htmlFor="data">Data Preferida</label>
-                                    <input type="date" name="" id="data" />
+                                    <input type="date" required name="" id="data" />
                                 </div>
                                 <div className={styles.divInput}>
                                     <label htmlFor="hora">Horário Preferido</label>
-                                    <input type="time" name="" id="hora" />
+                                    <input type="time" required name="" id="hora" />
                                 </div>
                             </div>
                             <div className={styles.divInput}>

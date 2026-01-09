@@ -3,6 +3,7 @@ import hanbur from '/icons/list.svg'
 import xSvg from '/icons/x.svg'
 import styles from './header.module.css'
 import { useState } from 'react'
+import { Link } from "react-router-dom"
 
 export default function Header() {
 
@@ -43,6 +44,14 @@ export default function Header() {
                 <div
                     className={`${styles.divLinks} ${menu ? styles.trueMenu : styles.falseMenu}`}
                 >
+                    <Link to="/login"
+                        onClick={() => {
+                            if (menu) {
+                                setMenu(false)
+                            }
+                        }}>
+                        Login
+                    </Link>
                     <a
                         href="#slogan"
                         onClick={() => {
