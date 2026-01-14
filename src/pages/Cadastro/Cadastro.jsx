@@ -1,36 +1,41 @@
-import styles from './login.module.css'
+import styles from './cadastro.module.css'
 import estrela from '/icons/estrelaCirculoLogin.svg'
 import email from '/icons/emailLogin.svg'
-import cadeado from '/icons/cadeado.svg'
+import telefone from '/icons/telefone2.svg'
 import btnVoltar from '/icons/btnVoltar.svg'
 import { Link } from "react-router-dom"
 
-export default function Login() {
+export default function Cadastro() {
     return (
         <>
             <section className={styles.sectionLogin}>
                 <div className={styles.divLoginPai}>
-                    <Link to="/" className={styles.btnVoltar} title='Voltar para pagina'>
+                    <Link to="/login" className={styles.btnVoltar} title='Voltar para área de login'>
                         <img src={btnVoltar} alt="" />
                     </Link>
                     <div className={styles.divTitulo}>
                         <img src={estrela} alt="imagem de estrela" style={{ height: "5rem", width: "5rem" }} />
                         <h1>Beleza & Estilos</h1>
-                        <p>Entre na sua conta</p>
+                        <p>Cadastro</p>
                     </div>
                     <form action="" className={styles.form}>
                         <div className={styles.divEmail}>
                             <label htmlFor="email">E-mail</label>
                             <div>
                                 <img src={email} alt="" />
-                                <input type="email" required name="email" id="email" placeholder="seu@email.com" />
+                                <input type="email" name="email" id="email" placeholder="seu@email.com" />
                             </div>
                         </div>
-                        <div className={styles.divSenha}>
-                            <label htmlFor="senha">Senha</label>
+                        <div className={styles.divOu}>
+                            <div></div>
+                            <p>ou</p>
+                            <div></div>
+                        </div>
+                        <div className={styles.divNumber}>
+                            <label htmlFor="number">Numero</label>
                             <div>
-                                <img src={cadeado} alt="" />
-                                <input type="password" required name="senha" id="senha" placeholder="......" />
+                                <img src={telefone} alt="" />
+                                <input type="tel" name="number" id="number" placeholder='(00) 0000-0000' />
                             </div>
                         </div>
                         <div className={styles.divLinkSenha}>
@@ -38,10 +43,9 @@ export default function Login() {
                                 <input type="checkbox" name="lembrar" id="lembrar" />
                                 <label htmlFor="lembrar">Lembrar-me</label>
                             </div>
-                            <a href="/">Esqueceu a senha?</a>
                         </div>
 
-                        <button type="submit">Entrar</button>
+                        <button type="submit">Cadastrar</button>
                     </form>
 
                     <div className={styles.divOu}>
@@ -55,10 +59,6 @@ export default function Login() {
                             <img src="" alt="" />
                             Continuar com Google
                         </button>
-                        <p>
-                            Não tem uma conta?
-                            <Link to="/cadastro" title='Cadastrar'> Cadastre-se</Link>
-                        </p>
                     </div>
                 </div>
             </section>

@@ -107,18 +107,18 @@
     font-size: 1rem;
 }
 
-.divSenha {
+.divNumber {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-.divSenha img {
+.divNumber img {
     height: 1.5rem;
     width: 1.5rem;
 }
 
-.divSenha div {
+.divNumber div {
     border: solid 1px #B1B1B1;
     display: flex;
     align-items: center;
@@ -127,11 +127,11 @@
     border-radius: 7px;
 }
 
-.divSenha div:focus-within {
+.divNumber div:focus-within {
     border: 4px solid #e940ca;
 }
 
-.divSenha input {
+.divNumber input {
     border: none;
     width: 100%;
     height: 3rem;
@@ -139,22 +139,14 @@
     font-size: 1rem;
 }
 
-.divSenha input:focus {
+.divNumber input:focus {
     outline: none;
-}
-
-.divSenha input::placeholder {
-    font-size: 3rem;
 }
 
 /* form linkSenha e button*/
 
 .divLinkSenha {
-    display: flex;
-    flex-direction: row;
-    gap: clamp(.3rem, 10%, .5rem);
-    justify-content: space-around;
-    white-space: nowrap;
+    padding-left: 1rem;
 }
 
 .divLinkSenha div {
@@ -168,11 +160,6 @@
 
 .divLinkSenha input[type="checkbox"] {
     accent-color: #e940ca;
-}
-
-.divLinkSenha a {
-    text-decoration: none;
-    color: #e940ca;
 }
 
 .form {
@@ -206,7 +193,7 @@
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    padding: 0 2rem 2rem 2rem;
+    padding: 0 2rem 0 2rem;
     font-size: 1.3rem;
 }
 
@@ -222,7 +209,7 @@
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    padding: 0 2rem 2rem 2rem;
+    padding: 2rem;
 }
 
 .divBtnLogin button {
@@ -237,15 +224,5 @@
 
 .divBtnLogin button:hover {
     background-color: rgb(234, 233, 233);
-}
-
-.divBtnLogin p {
-    font-size: 1.1rem;
-}
-
-.divBtnLogin p a {
-    color: #e940ca;
-    font-weight: 500;
-    text-decoration: none;
 }
 
