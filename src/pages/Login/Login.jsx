@@ -4,10 +4,36 @@ import email from '/icons/emailLogin.svg'
 import cadeado from '/icons/cadeado.svg'
 import btnVoltar from '/icons/btnVoltar.svg'
 import { Link } from "react-router-dom"
+import { useEffect, useState } from 'react'
 
 export default function Login() {
+    const [showAlert, setShowAleert] = useState(false)
+
+    useEffect(() => {
+        setShowAleert(true)
+        const timer = setTimeout(() => {
+            setShowAleert(false)
+        }, 10000)
+
+        return () => clearTimeout(timer)
+    }, [])
+
+
+
     return (
         <>
+            {showAlert && <div 
+            className={styles.divAlert}
+            onClick={() => {
+                setShowAleert(false)
+            }}
+            >
+                <div>
+                <p>Bem-vindo à página de login!</p>
+                <p>Por gentileza, não Adicione seu E-mail ou Número pessoal. 
+                    Isso é só uma simlação, então pode colocar um fictício.</p>
+                </div>
+            </div>}
             <section className={styles.sectionLogin}>
                 <div className={styles.divLoginPai}>
                     <Link to="/" className={styles.btnVoltar} title='Voltar para pagina'>

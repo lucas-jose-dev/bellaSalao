@@ -3,9 +3,39 @@ import estrela from '/icons/estrelaCirculoLogin.svg'
 import email from '/icons/emailLogin.svg'
 import telefone from '/icons/telefone2.svg'
 import btnVoltar from '/icons/btnVoltar.svg'
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { useState } from 'react'
+import emailModules from '../../services/emailModule'
 
 export default function Cadastro() {
+    const [valorEmail, setValorEmail] = useState("")
+    const [valorNumber, setValorNumber] = useState("")
+    const [valorSenha, setValorSeha] = useState("")
+    const navigate = useNavigate()
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        if (valorEmail) {
+            navigate("/horarios")
+            emailModules(valorEmail)
+            return
+        } else if (valorNumber) {
+            if(valorNumber.length === 11){
+                emailModules(Number(valorNumber))
+                navigate("/horarios")
+                return
+            } else {
+                alert("Adicione a quantidade de números correto")
+                return
+            }
+        } else {
+            alert("Adicione um E-mail ou Número de telefone")
+            return
+        }
+        console.log("Email submetiido", valorEmail)
+        
+    }
+
     return (
         <>
             <section className={styles.sectionLogin}>
@@ -18,12 +48,20 @@ export default function Cadastro() {
                         <h1>Beleza & Estilos</h1>
                         <p>Cadastro</p>
                     </div>
-                    <form action="" className={styles.form}>
+                    <form onSubmit={handleSubmit} className={styles.form}>
                         <div className={styles.divEmail}>
                             <label htmlFor="email">E-mail</label>
                             <div>
                                 <img src={email} alt="" />
-                                <input type="email" name="email" id="email" placeholder="seu@email.com" />
+                                <input
+                                    type="email"
+                                    name="email"
+                                    id="email"
+                                    placeholder="seu@email.com" 
+                                    onChange={(e) => {
+                                        setValorEmail(e.target.value)   
+                                    }}
+                                    />
                             </div>
                         </div>
                         <div className={styles.divOu}>
@@ -35,7 +73,16 @@ export default function Cadastro() {
                             <label htmlFor="number">Numero</label>
                             <div>
                                 <img src={telefone} alt="" />
-                                <input type="tel" name="number" id="number" placeholder='(00) 0000-0000' />
+                                <input 
+                                type="tel" 
+                                name="number" 
+                                id="number" 
+                                placeholder='(00) 0000-0000' 
+                                maxLength={11}
+                                onChange={(e) => 
+                                    setValorNumber(e.target.value)
+                                }
+                                />
                             </div>
                         </div>
                         <div className={styles.divLinkSenha}>
@@ -56,7 +103,7 @@ export default function Cadastro() {
 
                     <div className={styles.divBtnLogin}>
                         <button>
-                            <img src="" alt="" />
+                            <img src={telefone} alt="" />
                             Continuar com Google
                         </button>
                     </div>
