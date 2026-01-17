@@ -1,0 +1,23 @@
+.divAlert {
+    height: 100%;
+    width: 100%;
+    background-color: #812ecaab;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+}
+
+.divAlert div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+    height: 20rem;
+    width: 50rem;
+    background-color: #812eca;
+    border-radius: 20px;
+}

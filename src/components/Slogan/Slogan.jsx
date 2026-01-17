@@ -6,7 +6,7 @@ export default function Slogan() {
         <>
             <section className={styles.section} id='slogan'>
                 <div className={styles.divSlogan}>
-                    <p>Sua Beleza, Nossa Paixão</p>
+                    <h1>Sua Beleza, Nossa Paixão.</h1>
                     <p>
                         Especialistas em cabelo, sobrancelhas e unhas.
                         Transforme seu visual com nosso profissionais qualificados.

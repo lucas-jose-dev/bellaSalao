@@ -1,14 +1,18 @@
 
 .section {
     min-height: 100vh;
-    background-color: black;
+    background-image: linear-gradient(rgba(245, 129, 235, 0.646)),
+    url("../../../public/image/salao.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.section p {
-    color: #c7c8cf;
+.section p, h1 {
+    color: #ffffff;
 }
 
 .divSlogan {

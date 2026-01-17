@@ -3,41 +3,74 @@ import estrela from '/icons/estrelaCirculoLogin.svg'
 import email from '/icons/emailLogin.svg'
 import telefone from '/icons/telefone2.svg'
 import btnVoltar from '/icons/btnVoltar.svg'
+import google from '/icons/google.svg'
 import { Link, useNavigate } from "react-router-dom"
 import { useState } from 'react'
 import emailModules from '../../services/emailModule'
+import gerarSenha from '../../services/senhaModules'
+import Alert from '../components/Alert/Alert'
+import emailNumber from '../../services/tratarErrosAlert'
 
 export default function Cadastro() {
     const [valorEmail, setValorEmail] = useState("")
     const [valorNumber, setValorNumber] = useState("")
-    const [valorSenha, setValorSeha] = useState("")
+    // const [valorSenha, setValorSeha] = useState("")
+    const [errorEmailNumber, setErrorEmailNumber] = useState(false)
+    const [dadosError, setDadosError] = useState()
     const navigate = useNavigate()
 
     const handleSubmit = (e) => {
         e.preventDefault()
         if (valorEmail) {
-            navigate("/horarios")
+            let senhaGerada = gerarSenha(8)
             emailModules(valorEmail)
+
+            setErrorEmailNumber(false)
+            setTimeout(() => setErrorEmailNumber(true), 0)
+            const dados = emailNumber("cadastroEmailRealizado")
+            setDadosError(dados)
+
+            // navigate("/login")
+            setValorEmail("")
             return
         } else if (valorNumber) {
-            if(valorNumber.length === 11){
+            if (valorNumber.length === 11) {
+                console.log(gerarSenha(8))
                 emailModules(Number(valorNumber))
-                navigate("/horarios")
+                
+                setErrorEmailNumber(false)
+                setTimeout(() => setErrorEmailNumber(true), 0)
+                const dados = emailNumber("cadastroNumberRealizado")
+                setDadosError(dados)
+                
+                // navigate("/login")
+                setValorNumber("")
                 return
             } else {
-                alert("Adicione a quantidade de números correto")
+                setErrorEmailNumber(false)
+                setTimeout(() => setErrorEmailNumber(true), 0)
+                const dados = emailNumber("numerosCorretos")
+                setDadosError(dados)
                 return
             }
         } else {
-            alert("Adicione um E-mail ou Número de telefone")
-            return
+            setErrorEmailNumber(false)
+            setTimeout(() => setErrorEmailNumber(true), 0)
+            const dados = emailNumber("adicionaEmailouNumero")
+            setDadosError(dados)
         }
-        console.log("Email submetiido", valorEmail)
-        
+
     }
 
     return (
         <>
+            {errorEmailNumber && (<Alert
+                show={true}
+                slogan={dadosError.slogan}
+                informe={dadosError.informe}
+            >
+                <button>Copiar</button>
+            </Alert>)}
             <section className={styles.sectionLogin}>
                 <div className={styles.divLoginPai}>
                     <Link to="/login" className={styles.btnVoltar} title='Voltar para área de login'>
@@ -57,11 +90,12 @@ export default function Cadastro() {
                                     type="email"
                                     name="email"
                                     id="email"
-                                    placeholder="seu@email.com" 
+                                    value={valorEmail}
+                                    placeholder="seu@email.com"
                                     onChange={(e) => {
-                                        setValorEmail(e.target.value)   
+                                        setValorEmail(e.target.value)
                                     }}
-                                    />
+                                />
                             </div>
                         </div>
                         <div className={styles.divOu}>
@@ -73,15 +107,16 @@ export default function Cadastro() {
                             <label htmlFor="number">Numero</label>
                             <div>
                                 <img src={telefone} alt="" />
-                                <input 
-                                type="tel" 
-                                name="number" 
-                                id="number" 
-                                placeholder='(00) 0000-0000' 
-                                maxLength={11}
-                                onChange={(e) => 
-                                    setValorNumber(e.target.value)
-                                }
+                                <input
+                                    type="tel"
+                                    name="number"
+                                    id="number"
+                                    value={valorNumber}
+                                    placeholder='(00) 0000-0000'
+                                    maxLength={11}
+                                    onChange={(e) =>
+                                        setValorNumber(e.target.value)
+                                    }
                                 />
                             </div>
                         </div>
@@ -103,7 +138,7 @@ export default function Cadastro() {
 
                     <div className={styles.divBtnLogin}>
                         <button>
-                            <img src={telefone} alt="" />
+                            <img src={google} alt="" />
                             Continuar com Google
                         </button>
                     </div>

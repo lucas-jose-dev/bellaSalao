@@ -1,28 +1,4 @@
 
-.divAlert {
-    height: 100%;
-    width: 100%;
-    background-color: #812ecaab;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    font-size: 2rem;
-}
-
-.divAlert div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 3rem;
-    height: 20rem;
-    width: 50rem;
-    background-color: #812eca;
-    border-radius: 20px;
-}
-
 .sectionLogin {
     min-height: 100vh;
     display: flex;
@@ -104,7 +80,7 @@
 }
 
 .divEmail div {
-    border: solid 1px #B1B1B1;
+    outline: solid 1px #B1B1B1;
     display: flex;
     align-items: center;
     gap: .5rem;
@@ -113,7 +89,7 @@
 }
 
 .divEmail div:focus-within {
-    border: 4px solid #e940ca;
+    outline: 4px solid #e940ca;
 }
 
 .divEmail input {
@@ -143,7 +119,7 @@
 }
 
 .divSenha div {
-    border: solid 1px #B1B1B1;
+    outline: solid 1px #B1B1B1;
     display: flex;
     align-items: center;
     gap: .5rem;
@@ -152,7 +128,7 @@
 }
 
 .divSenha div:focus-within {
-    border: 4px solid #e940ca;
+    outline: 4px solid #e940ca;
 }
 
 .divSenha input {
@@ -188,10 +164,12 @@
 
 .divLinkSenha label {
     color: #3b3d43;
+    cursor: pointer;
 }
 
 .divLinkSenha input[type="checkbox"] {
     accent-color: #e940ca;
+    cursor: pointer;
 }
 
 .divLinkSenha a {
@@ -249,6 +227,11 @@
     padding: 0 2rem 2rem 2rem;
 }
 
+.divBtnLogin button img {
+    height: 2rem;
+    width: 2rem;
+}
+
 .divBtnLogin button {
     width: 100%;
     padding: 1rem;
@@ -256,7 +239,13 @@
     font-size: 1.2rem;
     font-weight: 500;
     border-radius: 10px;
-    border: solid 1px #B1B1B1 ;
+    border: solid 1px #B1B1B1;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }
 
 .divBtnLogin button:hover {

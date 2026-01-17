@@ -1,7 +1,9 @@
 <svg width="77" height="77" viewBox="0 0 77 77" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_21_2)" filter="url(#filter0_d_21_2)">
-<rect width="69" height="69" transform="translate(4)" fill="url(#paint0_linear_21_2)" fill-opacity="0.2"/>
-<path d="M38.4997 24.1496V13.7995L17.8 31.0499L38.4997 48.2997V37.9496C38.4997 37.9496 46.1426 36.3869 50.5746 40.5372C57.9362 47.4304 55.7496 55.1995 55.7496 55.1995C55.7496 55.1995 60.8895 44.9349 57.906 37.0868C53.801 26.2899 38.4997 24.1496 38.4997 24.1496ZM59.1995 0H17.8C10.1788 0 4 6.17878 4 13.7995V55.1995C4 62.8207 10.1783 68.9995 17.8 68.9995H59.1995C66.8212 68.9995 72.9995 62.8207 72.9995 55.1995V13.7995C72.9995 6.17878 66.8212 0 59.1995 0ZM66.0997 51.7496C66.0997 57.4655 61.466 62.0997 55.7496 62.0997H21.2499C15.534 62.0997 10.8997 57.4655 10.8997 51.7496V17.2499C10.8997 11.534 15.5335 6.89975 21.2499 6.89975H55.7496C61.4655 6.89975 66.0997 11.534 66.0997 17.2499V51.7496Z" fill="url(#paint1_linear_21_2)"/>
+<g filter="url(#filter0_d_21_2)">
+<g clip-path="url(#clip0_21_2)">
+<rect x="4" width="69" height="69" rx="20" fill="url(#paint0_linear_21_2)" fill-opacity="0.2"/>
+<path d="M38.4997 24.1496V13.7995L17.8 31.0499L38.4997 48.2997V37.9496C38.4997 37.9496 46.1426 36.3869 50.5746 40.5372C57.9362 47.4304 55.7496 55.1995 55.7496 55.1995C55.7496 55.1995 60.8895 44.9349 57.906 37.0868C53.801 26.2899 38.4997 24.1496 38.4997 24.1496ZM59.1995 0H17.8C10.1788 0 4 6.17878 4 13.7995V55.1995C4 62.8207 10.1783 68.9995 17.8 68.9995H59.1995C66.8212 68.9995 72.9995 62.8207 72.9995 55.1995V13.7995C72.9995 6.17878 66.8212 0 59.1995 0ZM66.0998 51.7496C66.0998 57.4655 61.466 62.0998 55.7496 62.0998H21.2499C15.534 62.0998 10.8997 57.4655 10.8997 51.7496V17.2499C10.8997 11.534 15.5335 6.89975 21.2499 6.89975H55.7496C61.4655 6.89975 66.0998 11.534 66.0998 17.2499V51.7496Z" fill="url(#paint1_linear_21_2)"/>
+</g>
 </g>
 <defs>
 <filter id="filter0_d_21_2" x="0" y="0" width="77" height="77" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
@@ -14,7 +16,7 @@
 <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_21_2"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_21_2" result="shape"/>
 </filter>
-<linearGradient id="paint0_linear_21_2" x1="34.5" y1="0" x2="34.5" y2="69" gradientUnits="userSpaceOnUse">
+<linearGradient id="paint0_linear_21_2" x1="38.5" y1="0" x2="38.5" y2="69" gradientUnits="userSpaceOnUse">
 <stop stop-color="#AB4CFF"/>
 <stop offset="1" stop-color="#666666"/>
 </linearGradient>
@@ -23,7 +25,7 @@
 <stop offset="1" stop-color="#910663"/>
 </linearGradient>
 <clipPath id="clip0_21_2">
-<rect width="69" height="69" fill="white" transform="translate(4)"/>
+<rect x="4" width="69" height="69" rx="20" fill="white"/>
 </clipPath>
 </defs>
 </svg>
