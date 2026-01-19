@@ -1,23 +1,23 @@
 
-let nome = localStorage.getItem("Nome")
 
-export default function emailNumber(erro) {
+export default function emailNumber(erro, nome) {
 
     switch (erro) {
-
-        case "cadastroEmailRealizado":
+        case "cadastroEmailRealizado": {
             return {
                 slogan: `Cadastro realizado com sucesso, ${nome}!!`,
                 informe: `Copy sua senha para fazer o login. Senha: {senhaGerada}`,
                 status: "sucesso"
             }
+        }
             break;
-        case "cadastroNumberRealizado":
+        case "cadastroNumberRealizado": {
             return {
                 slogan: `Cadastro realizado com sucesso, ${nome}!!`,
                 informe: `Copy sua senha para fazer o login. Senha: {senhaGerada}`,
                 status: "sucesso"
             }
+        }
             break;
         case "nomeNaoAdicionado":
             return {

@@ -38,7 +38,7 @@ export default function Cadastro() {
                 emailModules(valorEmail, valorNome)
                 setErrorEmailNumber(false)
                 setTimeout(() => setErrorEmailNumber(true), 0)
-                const dados = emailNumber("cadastroEmailRealizado")
+                const dados = emailNumber("cadastroEmailRealizado", valorNome)
                 setDadosError(dados)
 
                 // navigate("/login")
@@ -54,7 +54,7 @@ export default function Cadastro() {
 
                     setErrorEmailNumber(false)
                     setTimeout(() => setErrorEmailNumber(true), 0)
-                    const dados = emailNumber("cadastroNumberRealizado")
+                    const dados = emailNumber("cadastroNumberRealizado", valorNome)
                     setDadosError(dados)
 
                     // navigate("/login")
