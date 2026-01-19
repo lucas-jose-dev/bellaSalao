@@ -3,6 +3,8 @@ import estrela from '/icons/estrelaCirculoLogin.svg'
 import email from '/icons/emailLogin.svg'
 import telefone from '/icons/telefone2.svg'
 import btnVoltar from '/icons/btnVoltar.svg'
+import erroicone from '/icons/erros.svg'
+import sucesso from '/icons/sucesso.svg'
 import google from '/icons/google.svg'
 import { Link, useNavigate } from "react-router-dom"
 import { useState } from 'react'
@@ -14,49 +16,68 @@ import emailNumber from '../../services/tratarErrosAlert'
 export default function Cadastro() {
     const [valorEmail, setValorEmail] = useState("")
     const [valorNumber, setValorNumber] = useState("")
+    const [valorNome, setValorNome] = useState("")
     // const [valorSenha, setValorSeha] = useState("")
     const [errorEmailNumber, setErrorEmailNumber] = useState(false)
-    const [dadosError, setDadosError] = useState()
+    const [dadosError, setDadosError] = useState("")
     const navigate = useNavigate()
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (valorEmail) {
-            let senhaGerada = gerarSenha(8)
-            emailModules(valorEmail)
+        if (valorNome) {
 
-            setErrorEmailNumber(false)
-            setTimeout(() => setErrorEmailNumber(true), 0)
-            const dados = emailNumber("cadastroEmailRealizado")
-            setDadosError(dados)
-
-            // navigate("/login")
-            setValorEmail("")
-            return
-        } else if (valorNumber) {
-            if (valorNumber.length === 11) {
-                console.log(gerarSenha(8))
-                emailModules(Number(valorNumber))
-                
+            if (valorEmail && valorNumber) {
+                    setErrorEmailNumber(false)
+                    setTimeout(() => setErrorEmailNumber(true), 0)
+                    const dados = emailNumber("duasFormasDeCadastro")
+                    setDadosError(dados)
+                    return
+            
+             } else if (valorEmail) {
+                let senhaGerada = gerarSenha(8)
+                emailModules(valorEmail, valorNome)
                 setErrorEmailNumber(false)
                 setTimeout(() => setErrorEmailNumber(true), 0)
-                const dados = emailNumber("cadastroNumberRealizado")
+                const dados = emailNumber("cadastroEmailRealizado")
                 setDadosError(dados)
-                
+
                 // navigate("/login")
-                setValorNumber("")
+                setValorEmail("")
+                setValorNome("")
+
+                console.log(dadosError)
                 return
+            } else if (valorNumber) {
+                if (valorNumber.length === 11) {
+                    console.log(gerarSenha(8))
+                    emailModules(Number(valorNumber), valorNome)
+
+                    setErrorEmailNumber(false)
+                    setTimeout(() => setErrorEmailNumber(true), 0)
+                    const dados = emailNumber("cadastroNumberRealizado")
+                    setDadosError(dados)
+
+                    // navigate("/login")
+                    setValorNumber("")
+                    setValorNome("")
+                    return
+                }  else {
+                    setErrorEmailNumber(false)
+                    setTimeout(() => setErrorEmailNumber(true), 0)
+                    const dados = emailNumber("numerosCorretos")
+                    setDadosError(dados)
+                    return
+                }
             } else {
                 setErrorEmailNumber(false)
                 setTimeout(() => setErrorEmailNumber(true), 0)
-                const dados = emailNumber("numerosCorretos")
+                const dados = emailNumber("adicionaEmailouNumero")
                 setDadosError(dados)
-                return
             }
         } else {
             setErrorEmailNumber(false)
             setTimeout(() => setErrorEmailNumber(true), 0)
-            const dados = emailNumber("adicionaEmailouNumero")
+            const dados = emailNumber("nomeNaoAdicionado")
             setDadosError(dados)
         }
 
@@ -68,8 +89,20 @@ export default function Cadastro() {
                 show={true}
                 slogan={dadosError.slogan}
                 informe={dadosError.informe}
+                delay={dadosError.status === 'erros' ? 10000 : 40000}
+                iconeStatus={dadosError.status === 'erros' ? erroicone : sucesso}
+                // estilosDivAlert={styles.divAlert}
+                estilosDivItens={`${dadosError.status === 'erros' ? styles.divAlertItensErros : styles.divAlertItensSucesso}`}
+                estilosDivTitulos={`${dadosError.status === 'erros' ? styles.divAlertTituloErros : styles.divAlertTituloSucesso}`}
             >
-                <button>Copiar</button>
+                <button
+                    className={`${dadosError.status === "sucesso"
+                        ? styles.open
+                        : styles.close}
+                        `}
+                >
+                    Copiar
+                </button>
             </Alert>)}
             <section className={styles.sectionLogin}>
                 <div className={styles.divLoginPai}>
@@ -82,6 +115,22 @@ export default function Cadastro() {
                         <p>Cadastro</p>
                     </div>
                     <form onSubmit={handleSubmit} className={styles.form}>
+                        <div className={styles.divEmail}>
+                            <label htmlFor="nome">Primeiro nome</label>
+                            <div>
+                                <img src={email} alt="" />
+                                <input
+                                    type="texo"
+                                    name="nome"
+                                    id="nome"
+                                    value={valorNome}
+                                    placeholder="Digite seu primeiro nome"
+                                    onChange={(e) => {
+                                        setValorNome(e.target.value)
+                                    }}
+                                />
+                            </div>
+                        </div>
                         <div className={styles.divEmail}>
                             <label htmlFor="email">E-mail</label>
                             <div>

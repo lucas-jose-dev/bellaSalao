@@ -11,7 +11,7 @@ export default function Slogan() {
                         Especialistas em cabelo, sobrancelhas e unhas.
                         Transforme seu visual com nosso profissionais qualificados.
                     </p>
-                    <a href="http://">Agende seu Horário</a>
+                    <a href="/">Agende seu Horário</a>
                 </div>
             </section>
         </>

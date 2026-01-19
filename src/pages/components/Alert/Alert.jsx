@@ -1,16 +1,17 @@
 import { useEffect, useState } from 'react'
 import styles from './alert.module.css'
+import emailNumber from '../../../services/tratarErrosAlert'
 
 
-export default function Alert({ show, slogan, informe, estilos, children }) {
+export default function Alert({ slogan, informe, delay, estilosDivAlert, estilosDivItens, estilosDivTitulos, estilosDivBtn, children, iconeStatus }) {
     const [showAlert, setShowAleert] = useState(false)
 
 
     useEffect(() => {
-        setShowAleert(show)
+        setShowAleert(true)
         const timer = setTimeout(() => {
             setShowAleert(false)
-        }, 10000)
+        }, delay)
 
         return () => clearTimeout(timer)
     }, [])
@@ -18,16 +19,21 @@ export default function Alert({ show, slogan, informe, estilos, children }) {
     return (
         <>
             {showAlert && <div
-                className={`${estilos} ${styles.divAlert}`}
+                className={`${styles.divAlert} ${estilosDivAlert}`}
                 onClick={() => {
                     setShowAleert(false)
                 }}
             >
-                <div>
-                    <p>{slogan}</p>
-                    <p>{informe}</p>
+                <div className={`${styles.divItens} ${estilosDivItens}`}>
+                    <img src={iconeStatus} alt="" />
+                    <div className={`${styles.divTitulo} ${estilosDivTitulos}`}>
+                        <h2>{slogan}</h2>
+                        <p>{informe}</p>
+                    </div>
+                    <div className={`${estilosDivBtn}`}>
+                        {children}
+                    </div>
                 </div>
-                {children}
             </div>}
         </>
     )

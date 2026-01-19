@@ -1,5 +1,6 @@
 import styles from './login.module.css'
 import estrela from '/icons/estrelaCirculoLogin.svg'
+import estrela2 from '/icons/estrela.svg'
 import email from '/icons/emailLogin.svg'
 import cadeado from '/icons/cadeado.svg'
 import btnVoltar from '/icons/btnVoltar.svg'
@@ -14,10 +15,14 @@ export default function Login() {
         <>
             <Alert
                 show={true}
+                iconeStatus={estrela2}
+                estilosDivAlert={styles.divAlertLogin}
+                estilosDivItens={styles.divItensLogin}
+                delay={10000}
                 slogan={"Bem-vindo à página de login!"}
                 informe={`Por gentileza, não Adicione seu E-mail ou Número pessoal.
                         Isso é só uma simlação, então pode colocar um fictício.`}
-            />
+            ></Alert>
             <section className={styles.sectionLogin}>
                 <div className={styles.divLoginPai}>
                     <Link to="/" className={styles.btnVoltar} title='Voltar para pagina'>

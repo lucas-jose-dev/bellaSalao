@@ -1,11 +1,14 @@
 
 
-export default function emailModules(valor) {
-    console.log(valor)
-    if (typeof valor === "number" ) {
-        localStorage.setItem("Telefone", valor)
+export default function emailModules(valorTipoCadastro, nome) {
+    console.log(valorTipoCadastro, nome)
+    if (typeof valorTipoCadastro === "number" ) {
+        localStorage.setItem("Telefone", valorTipoCadastro)
+        localStorage.setItem("Nome", nome)
     } else {
-        localStorage.setItem("Email", valor)
+        localStorage.setItem("Email", valorTipoCadastro)
+        localStorage.setItem("Nome", nome)
+        console.log(nome, valorTipoCadastro)
     }
 }
 

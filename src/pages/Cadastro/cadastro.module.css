@@ -1,12 +1,10 @@
-
 .sectionLogin {
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     background-image: linear-gradient(to top, rgba(230, 204, 234, 0.492)),
-    url(../../../public/image/salao.jpg)
-    ;
+        url(../../../public/image/salao.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -24,7 +22,7 @@
 
 .divLoginPai {
     background-color: white;
-    width: clamp(19rem,  90%, 25rem);
+    width: clamp(19rem, 90%, 25rem);
     border-radius: 10px;
 }
 
@@ -42,7 +40,7 @@
 
 .divLoginPai h1 {
     background: linear-gradient(to right, #e640e9, #812eca, #e640e9, #812eca, #e640e9) 50%;
-    
+
     background-size: 200%;
     background-clip: text;
     -webkit-background-clip: text;
@@ -199,7 +197,7 @@
 
 .divOu div {
     border-bottom: solid #c7c4c4 1px;
-    
+
     width: 100%;
     height: 0;
 }
@@ -224,7 +222,7 @@
     font-size: 1.2rem;
     font-weight: 500;
     border-radius: 10px;
-    border: solid 1px #B1B1B1 ;
+    border: solid 1px #B1B1B1;
     cursor: pointer;
     display: flex;
     flex-direction: row;
@@ -237,3 +235,55 @@
     background-color: rgb(234, 233, 233);
 }
 
+/* Alert */
+
+
+.divAlertItensErros {
+    display: flex;
+    justify-content: start;
+    background-color: #fffed6;
+    border: solid 3px rgb(240, 190, 7);
+}
+
+.divAlertItensErros img {
+    height: 4rem;
+    width: 4rem;
+}
+
+.divAlertTituloErros h2 {
+    color: rgb(110, 74, 1);
+}
+
+.divAlertTituloErros p {
+    color: #E58D00;
+}
+
+/* alert sucesso */
+
+.divAlertItensSucesso {
+    display: flex;
+    justify-content: start;
+    background-color: #eaffe7;
+    border: solid 3px rgb(110, 210, 123);
+}
+
+.divAlertItensSucesso img {
+    height: 4rem;
+    width: 4rem;
+}
+
+.divAlertTituloSucesso h2 {
+    color: rgb(23, 100, 1);
+}
+
+.divAlertTituloSucesso p {
+    color: #419a2b;
+}
+
+.open {
+    display: block;
+}
+
+.close {
+    display: none;
+}

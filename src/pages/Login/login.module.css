@@ -262,3 +262,12 @@
     text-decoration: none;
 }
 
+/* Alerts */
+
+.divAlertLogin {
+    background-color: #dcaee2ab;
+    align-items: center !important; /*Somente  para subir. Mas tenho que achar onde esta o conflito*/
+} 
+
+
+
