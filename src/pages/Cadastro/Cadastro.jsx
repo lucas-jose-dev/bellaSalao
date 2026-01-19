@@ -45,11 +45,11 @@ export default function Cadastro() {
                 setValorEmail("")
                 setValorNome("")
 
-                console.log(dadosError)
+                // console.log(dadosError)
                 return
             } else if (valorNumber) {
                 if (valorNumber.length === 11) {
-                    console.log(gerarSenha(8))
+                    // console.log(gerarSenha(8))
                     emailModules(Number(valorNumber), valorNome)
 
                     setErrorEmailNumber(false)
