@@ -5,12 +5,27 @@ import email from '/icons/emailLogin.svg'
 import cadeado from '/icons/cadeado.svg'
 import btnVoltar from '/icons/btnVoltar.svg'
 import google from '/icons/google.svg'
+import telefone from '/icons/telefone2.svg'
 import { Link } from "react-router-dom"
 import { useEffect, useState } from 'react'
 import Alert from '../components/Alert/Alert'
 
 export default function Login() {
-
+    const nome = localStorage.getItem('Nome')
+    
+    const [valorEmail, setValorEmail ] = useState("")
+    const [valorTelefone, setValorTelefone ] = useState("")
+    const [valorSenha, setValorSenha] = useState("")
+    function btnSubmit(e) {
+        e.preventDefault()
+        if(valorSenha === "1234") {
+            console.log(valorSenha)
+            console.log(valorEmail)
+            console.log(valorTelefone)
+            console.log(nome)
+        }
+    }
+    
     return (
         <>
             <Alert
@@ -33,19 +48,60 @@ export default function Login() {
                         <h1>Beleza & Estilos</h1>
                         <p>Entre na sua conta</p>
                     </div>
-                    <form action="" className={styles.form}>
+                    <form onSubmit={btnSubmit} className={styles.form}>
                         <div className={styles.divEmail}>
                             <label htmlFor="email">E-mail</label>
                             <div>
                                 <img src={email} alt="" />
-                                <input type="email" required name="email" id="email" placeholder="seu@email.com" />
+                                <input 
+                                type="email" 
+                                name="email" 
+                                id="email" 
+                                placeholder="seu@email.com" 
+                                onChange={(e) => {
+                                    setValorEmail(e.target.value)
+                                }}
+                                />
+                            </div>
+                        </div>
+
+                        <div className={styles.divOu}>
+                            <div></div>
+                            <p>ou</p>
+                            <div></div>
+                        </div>
+
+                        <div className={styles.divEmail}>
+                            <label htmlFor="telefone">Telefone</label>
+                            <div>
+                                <img src={telefone} alt="" />
+                                <input 
+                                type="tel" 
+                                name="telefone" 
+                                id="telefone"
+                                maxLength={11}
+                                placeholder="(00) 0000-0000" 
+                                onChange={(e) => {
+                                    setValorTelefone(e.target.value)
+                                }}
+                                />
                             </div>
                         </div>
                         <div className={styles.divSenha}>
                             <label htmlFor="senha">Senha</label>
                             <div>
                                 <img src={cadeado} alt="" />
-                                <input type="password" required name="senha" id="senha" placeholder="......" />
+                                <input 
+                                type="password" 
+                                required 
+                                name="senha" 
+                                id="senha" 
+                                placeholder="......" 
+                                onChange={(e) => {
+                                   setValorSenha(e.target.value)
+                                }}
+                                />
+                                
                             </div>
                         </div>
                         <div className={styles.divLinkSenha}>

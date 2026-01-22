@@ -3,7 +3,7 @@ import styles from './alert.module.css'
 import emailNumber from '../../../services/tratarErrosAlert'
 
 
-export default function Alert({ slogan, informe, delay, estilosDivAlert, estilosDivItens, estilosDivTitulos, estilosDivBtn, children, iconeStatus }) {
+export default function Alert({ slogan, informe, delay, estilosDivAlert, estilosDivItens, estilosDivTitulos, estilosDivBtn, children, iconeStatus,sairDoAlert }) {
     const [showAlert, setShowAleert] = useState(false)
 
 
@@ -21,7 +21,7 @@ export default function Alert({ slogan, informe, delay, estilosDivAlert, estilos
             {showAlert && <div
                 className={`${styles.divAlert} ${estilosDivAlert}`}
                 onClick={() => {
-                    setShowAleert(false)
+                    setShowAleert(sairDoAlert)
                 }}
             >
                 <div className={`${styles.divItens} ${estilosDivItens}`}>

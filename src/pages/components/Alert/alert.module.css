@@ -35,6 +35,7 @@
     border: solid 3px rgb(237, 20, 172);
     border-radius: 20px;
     padding: 2rem;
+    position: relative;
 }
 
 .divItens img {

@@ -20,25 +20,61 @@ export default function Cadastro() {
     // const [valorSenha, setValorSeha] = useState("")
     const [errorEmailNumber, setErrorEmailNumber] = useState(false)
     const [dadosError, setDadosError] = useState("")
+    const [btnCopy, setBtnCopy] = useState("Copiar")
+    const [mostrarALert, setMostrarAlert] = useState(false)
+    const [senhaGerada, setSenhaGerada] = useState("")
     const navigate = useNavigate()
+
+    function validadorEmail(valor) {
+        // console.log(valorEmail)
+        return /^[^\s@]+@(gmail\.com|outlook\.com|hotmail\.com)$/.test(valor)
+
+    }
+
+    function validadorNumero(valor) {
+        return /^\d{10,11}$/.test(valor);
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (valorNome) {
 
+        if (valorNome) {
             if (valorEmail && valorNumber) {
-                    setErrorEmailNumber(false)
-                    setTimeout(() => setErrorEmailNumber(true), 0)
-                    const dados = emailNumber("duasFormasDeCadastro")
-                    setDadosError(dados)
-                    return
-            
-             } else if (valorEmail) {
-                let senhaGerada = gerarSenha(8)
-                emailModules(valorEmail, valorNome)
+
                 setErrorEmailNumber(false)
                 setTimeout(() => setErrorEmailNumber(true), 0)
-                const dados = emailNumber("cadastroEmailRealizado", valorNome)
+                const dados = emailNumber("duasFormasDeCadastro")
+                setDadosError(dados)
+                return
+
+            } else if (valorEmail === "" && valorNumber === "") {
+
+                setErrorEmailNumber(false)
+                setTimeout(() => setErrorEmailNumber(true), 0)
+                const dados = emailNumber("duasFormasDeCadastro")
+                setDadosError(dados)
+                return
+
+            }
+
+            if (valorEmail) {
+                if (!validadorEmail(valorEmail)) {
+
+                    setErrorEmailNumber(false)
+                    setTimeout(() => setErrorEmailNumber(true), 0)
+                    const dados = emailNumber("emailIncorreto")
+                    setDadosError(dados)
+                    return
+
+                }
+
+                setMostrarAlert(true)
+                const senha = gerarSenha(8)
+                setSenhaGerada(senha)
+                emailModules(valorEmail, valorNome, senha)
+                setErrorEmailNumber(false)
+                setTimeout(() => setErrorEmailNumber(true), 0)
+                const dados = emailNumber("cadastroEmailRealizado", valorNome, senha)
                 setDadosError(dados)
 
                 // navigate("/login")
@@ -47,33 +83,36 @@ export default function Cadastro() {
 
                 // console.log(dadosError)
                 return
-            } else if (valorNumber) {
-                if (valorNumber.length === 11) {
-                    // console.log(gerarSenha(8))
-                    emailModules(Number(valorNumber), valorNome)
+
+            }
+
+            if (valorNumber) {
+                if (!validadorNumero(valorNumber)) {
 
                     setErrorEmailNumber(false)
                     setTimeout(() => setErrorEmailNumber(true), 0)
-                    const dados = emailNumber("cadastroNumberRealizado", valorNome)
+                    const dados = emailNumber("numerosCorretos")
+                    setDadosError(dados)
+                    return
+
+                }
+                    setMostrarAlert(true)
+                    const senha = gerarSenha(8)
+                    setSenhaGerada(senha)
+                    emailModules(Number(valorNumber), valorNome, senha)
+
+                    console.log(senha)
+                    setErrorEmailNumber(false)
+                    setTimeout(() => setErrorEmailNumber(true), 0)
+                    const dados = emailNumber("cadastroNumberRealizado", valorNome, senha)
                     setDadosError(dados)
 
                     // navigate("/login")
                     setValorNumber("")
                     setValorNome("")
                     return
-                }  else {
-                    setErrorEmailNumber(false)
-                    setTimeout(() => setErrorEmailNumber(true), 0)
-                    const dados = emailNumber("numerosCorretos")
-                    setDadosError(dados)
-                    return
                 }
-            } else {
-                setErrorEmailNumber(false)
-                setTimeout(() => setErrorEmailNumber(true), 0)
-                const dados = emailNumber("adicionaEmailouNumero")
-                setDadosError(dados)
-            }
+                
         } else {
             setErrorEmailNumber(false)
             setTimeout(() => setErrorEmailNumber(true), 0)
@@ -87,21 +126,38 @@ export default function Cadastro() {
         <>
             {errorEmailNumber && (<Alert
                 show={true}
+                sairDoAlert={mostrarALert}
                 slogan={dadosError.slogan}
                 informe={dadosError.informe}
-                delay={dadosError.status === 'erros' ? 10000 : 40000}
+                delay={dadosError.status === 'erros' ? 5000 : 100000000}
                 iconeStatus={dadosError.status === 'erros' ? erroicone : sucesso}
                 // estilosDivAlert={styles.divAlert}
                 estilosDivItens={`${dadosError.status === 'erros' ? styles.divAlertItensErros : styles.divAlertItensSucesso}`}
                 estilosDivTitulos={`${dadosError.status === 'erros' ? styles.divAlertTituloErros : styles.divAlertTituloSucesso}`}
             >
                 <button
-                    className={`${dadosError.status === "sucesso"
-                        ? styles.open
-                        : styles.close}
+                    className={`
+                        ${dadosError.status === "sucesso"
+                            ? styles.open
+                            : styles.close
+                        }
+                        ${styles.btnCopy}
                         `}
+                    onClick={() => {
+                        if (btnCopy === "Copiar") {
+                            navigator.clipboard.writeText(senhaGerada)
+                            setBtnCopy("Copiado")
+                            setMostrarAlert(false)
+                            setTimeout(() => {
+                                navigate("/")
+                            }, 1000)
+                        }
+                        //else {
+                        //     setBtnCopy("Copiar")
+                        // }
+                    }}
                 >
-                    Copiar
+                    {btnCopy}
                 </button>
             </Alert>)}
             <section className={styles.sectionLogin}>
@@ -147,19 +203,19 @@ export default function Cadastro() {
                                 />
                             </div>
                         </div>
-                        <div className={styles.divOu}>
+                        <div className={styles.divOuCadastro}>
                             <div></div>
                             <p>ou</p>
                             <div></div>
                         </div>
                         <div className={styles.divNumber}>
-                            <label htmlFor="number">Numero</label>
+                            <label htmlFor="telefone">Telefone</label>
                             <div>
                                 <img src={telefone} alt="" />
                                 <input
                                     type="tel"
-                                    name="number"
-                                    id="number"
+                                    name="telefone"
+                                    id="telefone"
                                     value={valorNumber}
                                     placeholder='(00) 0000-0000'
                                     maxLength={11}
@@ -179,7 +235,7 @@ export default function Cadastro() {
                         <button type="submit">Cadastrar</button>
                     </form>
 
-                    <div className={styles.divOu}>
+                    <div className={styles.divOuCadastro}>
                         <div></div>
                         <p>ou</p>
                         <div></div>

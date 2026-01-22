@@ -186,7 +186,7 @@
     }
 }
 
-.divOu {
+.divOuCadastro {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -195,7 +195,7 @@
     font-size: 1.3rem;
 }
 
-.divOu div {
+.divOuCadastro div {
     border-bottom: solid #c7c4c4 1px;
 
     width: 100%;
@@ -258,6 +258,8 @@
     color: #E58D00;
 }
 
+
+
 /* alert sucesso */
 
 .divAlertItensSucesso {
@@ -278,6 +280,7 @@
 
 .divAlertTituloSucesso p {
     color: #419a2b;
+    padding-bottom: 2rem;
 }
 
 .open {
@@ -286,4 +289,16 @@
 
 .close {
     display: none;
+}
+
+.btnCopy {
+    position: absolute;
+    bottom: 10%;
+    left: 48%;
+    height: 2rem;
+    width: 4rem;
+    color: #ffffff;
+    border-radius: 10px;
+    border: solid 3px rgb(63, 119, 70);
+    background-color: #2ee616;
 }

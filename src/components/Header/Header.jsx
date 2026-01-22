@@ -89,7 +89,7 @@ export default function Header() {
                             }
                         }}
                     >
-                        Agendar
+                        Contatos
                     </a>
                 </div>
             </header>
