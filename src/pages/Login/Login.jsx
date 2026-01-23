@@ -12,20 +12,23 @@ import Alert from '../components/Alert/Alert'
 
 export default function Login() {
     const nome = localStorage.getItem('Nome')
-    
-    const [valorEmail, setValorEmail ] = useState("")
-    const [valorTelefone, setValorTelefone ] = useState("")
+
+    const [valorEmail, setValorEmail] = useState("")
+    const [valorTelefone, setValorTelefone] = useState("")
     const [valorSenha, setValorSenha] = useState("")
+
+    const [showEmailTelefone, setShowEmailTelefone] = useState("email")
+
     function btnSubmit(e) {
         e.preventDefault()
-        if(valorSenha === "1234") {
+        if (valorSenha === "1234") {
             console.log(valorSenha)
             console.log(valorEmail)
             console.log(valorTelefone)
             console.log(nome)
         }
     }
-    
+
     return (
         <>
             <Alert
@@ -49,62 +52,97 @@ export default function Login() {
                         <p>Entre na sua conta</p>
                     </div>
                     <form onSubmit={btnSubmit} className={styles.form}>
-                        <div className={styles.divEmail}>
-                            <label htmlFor="email">E-mail</label>
+                        <div className={styles.divLabelLogin}>
+                            <label
+                                htmlFor="email"
+                                className={`${showEmailTelefone === "email" ? styles.labelEmailTelefoneLogin : ""}`}
+                                onClick={() => {
+                                    if (showEmailTelefone === "email") {
+                                        setShowEmailTelefone("email")
+                                    } else if (showEmailTelefone === "telefone") {
+                                        setShowEmailTelefone("email")
+                                    }
+                                }}
+                            >
+                                E-mail
+                            </label>
+                            <p>ou</p>
+                            <label
+                                htmlFor="telefone"
+                                className={`${showEmailTelefone === "telefone" ? styles.labelEmailTelefoneLogin : ""}`}
+                                onClick={() => {
+                                    if (showEmailTelefone === "telefone") {
+                                        setShowEmailTelefone("telefone")
+                                    } else if (showEmailTelefone === "email") {
+                                        setShowEmailTelefone("telefone")
+                                    }
+                                }}
+                            >
+                                Telefone
+                            </label>
+                        </div>
+                        <div className={`
+                        ${styles.divInputsLogin} 
+                        ${showEmailTelefone === "email"
+                                ?
+                                styles.divEmailTelefoneLoginShow
+                                :
+                                styles.divEmailTelefoneLoginClose
+                            } 
+                            `}>
                             <div>
                                 <img src={email} alt="" />
-                                <input 
-                                type="email" 
-                                name="email" 
-                                id="email" 
-                                placeholder="seu@email.com" 
-                                onChange={(e) => {
-                                    setValorEmail(e.target.value)
-                                }}
+                                <input
+                                    type="email"
+                                    name="email"
+                                    id="email"
+                                    placeholder="seu@email.com"
+                                    onChange={(e) => {
+                                        setValorEmail(e.target.value)
+                                    }}
                                 />
                             </div>
                         </div>
-
-                        <div className={styles.divOu}>
-                            <div></div>
-                            <p>ou</p>
-                            <div></div>
-                        </div>
-
-                        <div className={styles.divEmail}>
-                            <label htmlFor="telefone">Telefone</label>
+                        <div className={`${styles.divInputsLogin} ${showEmailTelefone === "telefone"
+                                ?
+                                styles.divEmailTelefoneLoginShow
+                                :
+                                styles.divEmailTelefoneLoginClose
+                            } 
+                            `}>
                             <div>
                                 <img src={telefone} alt="" />
-                                <input 
-                                type="tel" 
-                                name="telefone" 
-                                id="telefone"
-                                maxLength={11}
-                                placeholder="(00) 0000-0000" 
-                                onChange={(e) => {
-                                    setValorTelefone(e.target.value)
-                                }}
+                                <input
+                                    type="tel"
+                                    name="telefone"
+                                    id="telefone"
+                                    maxLength={11}
+                                    placeholder="(00) 0000-0000"
+                                    onChange={(e) => {
+                                        setValorTelefone(e.target.value)
+                                    }}
                                 />
                             </div>
                         </div>
-                        <div className={styles.divSenha}>
+
+                        <div className={styles.divInputsLogin}>
                             <label htmlFor="senha">Senha</label>
-                            <div>
+                            <div className={styles.divSenhaLogin}>
                                 <img src={cadeado} alt="" />
-                                <input 
-                                type="password" 
-                                required 
-                                name="senha" 
-                                id="senha" 
-                                placeholder="......" 
-                                onChange={(e) => {
-                                   setValorSenha(e.target.value)
-                                }}
+                                <input
+                                    type="password"
+                                    required
+                                    name="senha"
+                                    id="senha"
+                                    placeholder="......"
+                                    onChange={(e) => {
+                                        setValorSenha(e.target.value)
+                                    }}
                                 />
-                                
+
                             </div>
                         </div>
-                        <div className={styles.divLinkSenha}>
+                        <div className={styles.divLinkCheckbox}>
                             <div>
                                 <input type="checkbox" name="lembrar" id="lembrar" />
                                 <label htmlFor="lembrar">Lembrar-me</label>

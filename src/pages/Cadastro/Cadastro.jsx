@@ -23,6 +23,7 @@ export default function Cadastro() {
     const [btnCopy, setBtnCopy] = useState("Copiar")
     const [mostrarALert, setMostrarAlert] = useState(false)
     const [senhaGerada, setSenhaGerada] = useState("")
+    const [showEmailTelefone, setShowEmailTelefone] = useState("email")
     const navigate = useNavigate()
 
     function validadorEmail(valor) {
@@ -96,23 +97,23 @@ export default function Cadastro() {
                     return
 
                 }
-                    setMostrarAlert(true)
-                    const senha = gerarSenha(8)
-                    setSenhaGerada(senha)
-                    emailModules(Number(valorNumber), valorNome, senha)
+                setMostrarAlert(true)
+                const senha = gerarSenha(8)
+                setSenhaGerada(senha)
+                emailModules(Number(valorNumber), valorNome, senha)
 
-                    console.log(senha)
-                    setErrorEmailNumber(false)
-                    setTimeout(() => setErrorEmailNumber(true), 0)
-                    const dados = emailNumber("cadastroNumberRealizado", valorNome, senha)
-                    setDadosError(dados)
+                console.log(senha)
+                setErrorEmailNumber(false)
+                setTimeout(() => setErrorEmailNumber(true), 0)
+                const dados = emailNumber("cadastroNumberRealizado", valorNome, senha)
+                setDadosError(dados)
 
-                    // navigate("/login")
-                    setValorNumber("")
-                    setValorNome("")
-                    return
-                }
-                
+                // navigate("/login")
+                setValorNumber("")
+                setValorNome("")
+                return
+            }
+
         } else {
             setErrorEmailNumber(false)
             setTimeout(() => setErrorEmailNumber(true), 0)
@@ -171,7 +172,7 @@ export default function Cadastro() {
                         <p>Cadastro</p>
                     </div>
                     <form onSubmit={handleSubmit} className={styles.form}>
-                        <div className={styles.divEmail}>
+                        <div className={styles.divInputsCadastro}>
                             <label htmlFor="nome">Primeiro nome</label>
                             <div>
                                 <img src={email} alt="" />
@@ -187,8 +188,43 @@ export default function Cadastro() {
                                 />
                             </div>
                         </div>
-                        <div className={styles.divEmail}>
-                            <label htmlFor="email">E-mail</label>
+                        <div className={styles.divLabelCadastro}>
+                            <label
+                                htmlFor="email"
+                                className={showEmailTelefone === "email" ? styles.labelEmailTelefoneCadastro : ""}
+                                onClick={() => {
+                                    if (showEmailTelefone === "email") {
+                                        setShowEmailTelefone("email")
+                                    } else if (showEmailTelefone === "telefone") {
+                                        setShowEmailTelefone("email")
+                                    }
+                                }}
+                            >
+                                E-mail
+                            </label>
+                            <p>ou</p>
+                            <label
+                                htmlFor="telefone"
+                                className={showEmailTelefone === "telefone" ? styles.labelEmailTelefoneCadastro : ""}
+                                onClick={() => {
+                                    if (showEmailTelefone === "telefone") {
+                                        setShowEmailTelefone("telefone")
+                                    } else if (showEmailTelefone === "email") {
+                                        setShowEmailTelefone("telefone")
+                                    }
+                                }}
+                            >
+                                Telefone
+                            </label>
+                        </div>
+                        <div className={`${styles.divInputsCadastro}
+                        ${showEmailTelefone === "email"
+                                ?
+                                styles.divEmailTelefoneCadastroShow
+                                :
+                                styles.divEmailTelefoneCadastroClose
+                            }
+                        `}>
                             <div>
                                 <img src={email} alt="" />
                                 <input
@@ -203,13 +239,15 @@ export default function Cadastro() {
                                 />
                             </div>
                         </div>
-                        <div className={styles.divOuCadastro}>
-                            <div></div>
-                            <p>ou</p>
-                            <div></div>
-                        </div>
-                        <div className={styles.divNumber}>
-                            <label htmlFor="telefone">Telefone</label>
+
+                        <div className={`${styles.divInputsCadastro}
+                             ${showEmailTelefone === "telefone"
+                                ?
+                                styles.divEmailTelefoneCadastroShow
+                                :
+                                styles.divEmailTelefoneCadastroClose
+                            }
+                        `}>
                             <div>
                                 <img src={telefone} alt="" />
                                 <input
@@ -225,7 +263,8 @@ export default function Cadastro() {
                                 />
                             </div>
                         </div>
-                        <div className={styles.divLinkSenha}>
+
+                        <div className={styles.divCheckbox}>
                             <div>
                                 <input type="checkbox" name="lembrar" id="lembrar" />
                                 <label htmlFor="lembrar">Lembrar-me</label>
@@ -241,11 +280,15 @@ export default function Cadastro() {
                         <div></div>
                     </div>
 
-                    <div className={styles.divBtnLogin}>
+                    <div className={styles.divBtnCadastro}>
                         <button>
                             <img src={google} alt="" />
                             Continuar com Google
                         </button>
+                        <p>
+                            Já tem um cadastro? 
+                            <Link to="/login" className={styles.linke}> Login</Link>
+                        </p>
                     </div>
                 </div>
             </section>

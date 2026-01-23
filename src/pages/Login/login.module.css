@@ -60,119 +60,113 @@
     color: #5d5f68;
 }
 
-/* form Inputs */
+/* formulário */
 
 .form label {
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     font-weight: 600;
     color: #54565b;
 }
 
-.divEmail {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.divEmail img {
-    width: 1.5rem;
-    height: 1.5rem;
-}
-
-.divEmail div {
-    outline: solid 1px #B1B1B1;
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-    padding: 0 1rem;
-    border-radius: 7px;
-}
-
-.divEmail div:focus-within {
-    outline: 4px solid #e940ca;
-}
-
-.divEmail input {
-    border: none;
-    height: 3rem;
-    width: 100%;
-    font-size: 1rem;
-}
-
-.divEmail input:focus {
-    outline: none;
-}
-
-.divEmail input::placeholder {
-    font-size: 1rem;
-}
-
-.divSenha {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.divSenha img {
-    height: 1.5rem;
-    width: 1.5rem;
-}
-
-.divSenha div {
-    outline: solid 1px #B1B1B1;
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-    padding: 0 1rem;
-    border-radius: 7px;
-}
-
-.divSenha div:focus-within {
-    outline: 4px solid #e940ca;
-}
-
-.divSenha input {
-    border: none;
-    width: 100%;
-    height: 3rem;
-    line-height: 50px;
-    font-size: 1rem;
-}
-
-.divSenha input:focus {
-    outline: none;
-}
-
-.divSenha input::placeholder {
-    font-size: 3rem;
-}
-
-/* form linkSenha e button*/
-
-.divLinkSenha {
+.divLabelLogin {
     display: flex;
     flex-direction: row;
-    gap: clamp(.3rem, 10%, .5rem);
-    justify-content: space-around;
-    white-space: nowrap;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.divLinkSenha div {
-    display: flex;
-    gap: .5rem;
-}
-
-.divLinkSenha label {
-    color: #3b3d43;
+.divLabelLogin label {
     cursor: pointer;
 }
 
-.divLinkSenha input[type="checkbox"] {
+.divInputsLogin {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.divInputsLogin img {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.divInputsLogin div {
+    outline: solid 1px #B1B1B1;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: 0 1rem;
+    border-radius: 7px;
+}
+
+.divInputsLogin div:focus-within {
+    outline: 4px solid #e940ca;
+}
+
+.divInputsLogin input {
+    border: none;
+    height: 3rem;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.divInputsLogin input:focus {
+    outline: none;
+}
+
+.divInputsLogin input::placeholder {
+    font-size: 1rem;
+}
+
+.divSenhaLogin input::placeholder {
+    font-size: 3rem;
+} 
+
+.divEmailTelefoneLoginClose {
+    display: none;
+}
+
+.divEmailTelefoneLoginShow {
+    display: block;
+}
+
+.labelEmailTelefoneLogin {
+    border-bottom: solid 3px #e940ca;
+}
+
+
+/* Lembrar-me => link Senha => linke cadastro => button*/
+
+.divLinkCheckbox {
+    display: flex;
+    flex-direction: row;
+    gap: clamp(.3rem, 10%, .5rem);
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.divLinkCheckbox div {
+    display: flex;
+    gap: .5rem;
+}
+
+.divLinkCheckbox label {
+    color: #3b3d43;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.divLinkCheckbox input {
+    cursor: pointer;
+}
+
+.divLinkCheckbox input[type="checkbox"] {
     accent-color: #e940ca;
     cursor: pointer;
 }
 
-.divLinkSenha a {
+.divLinkCheckbox a {
     text-decoration: none;
     color: #e940ca;
 }

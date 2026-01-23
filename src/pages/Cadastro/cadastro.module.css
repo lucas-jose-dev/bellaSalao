@@ -60,111 +60,104 @@
 
 /* form Inputs */
 
-.form label {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #54565b;
-}
-
-.divEmail {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.divEmail img {
-    width: 1.5rem;
-    height: 1.5rem;
-}
-
-.divEmail div {
-    outline: solid 1px #B1B1B1;
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-    padding: 0 1rem;
-    border-radius: 7px;
-}
-
-.divEmail div:focus-within {
-    outline: 4px solid #e940ca;
-}
-
-.divEmail input {
-    border: none;
-    height: 3rem;
-    width: 100%;
-    font-size: 1rem;
-}
-
-.divEmail input:focus {
-    outline: none;
-}
-
-.divEmail input::placeholder {
-    font-size: 1rem;
-}
-
-.divNumber {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.divNumber img {
-    height: 1.5rem;
-    width: 1.5rem;
-}
-
-.divNumber div {
-    outline: solid 1px #B1B1B1;
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-    padding: 0 1rem;
-    border-radius: 7px;
-}
-
-.divNumber div:focus-within {
-    outline: 4px solid #e940ca;
-}
-
-.divNumber input {
-    border: none;
-    width: 100%;
-    height: 3rem;
-    line-height: 50px;
-    font-size: 1rem;
-}
-
-.divNumber input:focus {
-    outline: none;
-}
-
-/* form linkSenha e button*/
-
-.divLinkSenha {
-    padding-left: 1rem;
-}
-
-.divLinkSenha div {
-    display: flex;
-    gap: .5rem;
-}
-
-.divLinkSenha label {
-    color: #3b3d43;
-}
-
-.divLinkSenha input[type="checkbox"] {
-    accent-color: #e940ca;
-}
-
 .form {
     display: flex;
     flex-direction: column;
     padding: 2rem;
     gap: 2rem;
+}
+
+.form label {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #54565b;
+}
+
+.divLabelCadastro {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.divLabelCadastro label {
+cursor: pointer;
+}
+
+.divInputsCadastro {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.divInputsCadastro img {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.divInputsCadastro div {
+    outline: solid 1px #B1B1B1;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: 0 1rem;
+    border-radius: 7px;
+}
+
+.divInputsCadastro div:focus-within {
+    outline: 4px solid #e940ca;
+}
+
+.divInputsCadastro input {
+    border: none;
+    height: 3rem;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.divInputsCadastro input:focus {
+    outline: none;
+}
+
+.divInputsCadastro input::placeholder {
+    font-size: 1rem;
+}
+
+.divEmailTelefoneCadastroClose {
+    display: none;
+}
+
+.divEmailTelefoneCadastroShow {
+    display: block;
+}
+
+.labelEmailTelefoneCadastro {
+    border-bottom: solid 3px #e940ca;
+}
+
+
+
+/* lembrar-me => btn Casdastro => btn google => link login*/
+
+.divCheckbox div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .5rem;
+}
+
+.divCheckbox label {
+    color: #3b3d43;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.divCheckbox input {
+    cursor: pointer;
+}
+
+.divCheckbox input[type="checkbox"] {
+    accent-color: #e940ca;
 }
 
 .form button {
@@ -197,12 +190,11 @@
 
 .divOuCadastro div {
     border-bottom: solid #c7c4c4 1px;
-
     width: 100%;
     height: 0;
 }
 
-.divBtnLogin {
+.divBtnCadastro {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -210,12 +202,12 @@
     padding: 2rem;
 }
 
-.divBtnLogin button img {
+.divBtnCadastro button img {
     height: 2rem;
     width: 2rem;
 }
 
-.divBtnLogin button {
+.divBtnCadastro button {
     width: 100%;
     padding: 1rem;
     background-color: rgb(255, 255, 255);
@@ -231,11 +223,21 @@
     gap: 1rem;
 }
 
-.divBtnLogin button:hover {
+.divBtnCadastro button:hover {
     background-color: rgb(234, 233, 233);
 }
 
-/* Alert */
+.divBtnCadastro p {
+    font-size: 1.1rem;
+}
+
+.divBtnCadastro p a {
+    color: #e940ca;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/* Alerts */
 
 
 .divAlertItensErros {
