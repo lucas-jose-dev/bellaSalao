@@ -51,7 +51,7 @@ export default function Footer() {
                             </a>
                         </div>
                     </div>
-                    <p className={styles.pDireitos}>&copy; 2024 Bella Salão. Todos os direitos reservados.</p>
+                    <p className={styles.pDireitos}>&copy; 2026 Bella Salão. Todos os direitos reservados.</p>
                 </div>
             </footer>
         </>
