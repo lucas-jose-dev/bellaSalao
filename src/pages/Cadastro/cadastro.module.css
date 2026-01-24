@@ -81,7 +81,7 @@
 }
 
 .divLabelCadastro label {
-cursor: pointer;
+    cursor: pointer;
 }
 
 .divInputsCadastro {
@@ -229,6 +229,8 @@ cursor: pointer;
 
 .divBtnCadastro p {
     font-size: 1.1rem;
+    display: flex;
+    gap: .5rem;
 }
 
 .divBtnCadastro p a {

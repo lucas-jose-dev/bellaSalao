@@ -287,7 +287,7 @@ export default function Cadastro() {
                         </button>
                         <p>
                             Já tem um cadastro? 
-                            <Link to="/login" className={styles.linke}> Login</Link>
+                            <Link to="/login" className={styles.linke}>Login</Link>
                         </p>
                     </div>
                 </div>

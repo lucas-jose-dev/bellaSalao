@@ -46,6 +46,7 @@ export default function Header() {
                 >
                     <Link to="/login"
                         onClick={() => {
+                            sessionStorage.setItem("loginAlertVisto", "true")
                             if (menu) {
                                 setMenu(false)
                             }

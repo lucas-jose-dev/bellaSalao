@@ -248,6 +248,8 @@
 
 .divBtnLogin p {
     font-size: 1.1rem;
+    display: flex;
+    gap: .5rem;
 }
 
 .divBtnLogin p a {

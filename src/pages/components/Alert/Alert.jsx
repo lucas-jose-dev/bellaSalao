@@ -3,12 +3,12 @@ import styles from './alert.module.css'
 import emailNumber from '../../../services/tratarErrosAlert'
 
 
-export default function Alert({ slogan, informe, delay, estilosDivAlert, estilosDivItens, estilosDivTitulos, estilosDivBtn, children, iconeStatus,sairDoAlert }) {
+export default function Alert({ show, slogan, informe, delay, estilosDivAlert, estilosDivItens, estilosDivTitulos, estilosDivBtn, children, iconeStatus,sairDoAlert }) {
     const [showAlert, setShowAleert] = useState(false)
 
 
     useEffect(() => {
-        setShowAleert(true)
+        setShowAleert(show)
         const timer = setTimeout(() => {
             setShowAleert(false)
         }, delay)

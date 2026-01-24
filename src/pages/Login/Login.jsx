@@ -16,6 +16,7 @@ export default function Login() {
     const [valorEmail, setValorEmail] = useState("")
     const [valorTelefone, setValorTelefone] = useState("")
     const [valorSenha, setValorSenha] = useState("")
+    const [showAlert, setShowAleert] = useState(sessionStorage.getItem("loginAlertVisto"))
 
     const [showEmailTelefone, setShowEmailTelefone] = useState("email")
 
@@ -29,10 +30,18 @@ export default function Login() {
         }
     }
 
+    useEffect(() => {
+        if (showAlert === "false") {
+            sessionStorage.setItem("loginAlertVisto", "true")
+        }
+
+        // console.log("btnCadastro mudou para:", typeof showAlert)
+    }, [])
+
     return (
         <>
             <Alert
-                show={true}
+                show={showAlert === "true"}
                 iconeStatus={estrela2}
                 estilosDivAlert={styles.divAlertLogin}
                 estilosDivItens={styles.divItensLogin}
@@ -43,7 +52,11 @@ export default function Login() {
             ></Alert>
             <section className={styles.sectionLogin}>
                 <div className={styles.divLoginPai}>
-                    <Link to="/" className={styles.btnVoltar} title='Voltar para pagina'>
+                    <Link
+                        to="/"
+                        className={styles.btnVoltar}
+                        title='Voltar para pagina'
+                    >
                         <img src={btnVoltar} alt="" />
                     </Link>
                     <div className={styles.divTitulo}>
@@ -104,10 +117,10 @@ export default function Login() {
                             </div>
                         </div>
                         <div className={`${styles.divInputsLogin} ${showEmailTelefone === "telefone"
-                                ?
-                                styles.divEmailTelefoneLoginShow
-                                :
-                                styles.divEmailTelefoneLoginClose
+                            ?
+                            styles.divEmailTelefoneLoginShow
+                            :
+                            styles.divEmailTelefoneLoginClose
                             } 
                             `}>
                             <div>
@@ -166,7 +179,15 @@ export default function Login() {
                         </button>
                         <p>
                             Não tem uma conta?
-                            <Link to="/cadastro" title='Cadastrar'> Cadastre-se</Link>
+                            <Link
+                                to="/cadastro"
+                                title='Cadastrar'
+                                onClick={() => {
+                                    sessionStorage.setItem("loginAlertVisto", "false")
+                                }}
+                            >
+                                Cadastre-se
+                            </Link>
                         </p>
                     </div>
                 </div>
