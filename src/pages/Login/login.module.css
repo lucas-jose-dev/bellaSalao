@@ -127,12 +127,22 @@
 }
 
 .divEmailTelefoneLoginShow {
-    display: block;
+    display: flex;
 }
 
 .labelEmailTelefoneLogin {
     border-bottom: solid 3px #e940ca;
 }
+
+.spanCloseError {
+    display: none;
+}
+
+.spanShowError {
+    color: red;
+    display: block;
+}
+
 
 
 /* Lembrar-me => link Senha => linke cadastro => button*/

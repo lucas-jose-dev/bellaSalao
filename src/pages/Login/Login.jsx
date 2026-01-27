@@ -6,27 +6,93 @@ import cadeado from '/icons/cadeado.svg'
 import btnVoltar from '/icons/btnVoltar.svg'
 import google from '/icons/google.svg'
 import telefone from '/icons/telefone2.svg'
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useEffect, useState } from 'react'
 import Alert from '../components/Alert/Alert'
 
+
 export default function Login() {
     const nome = localStorage.getItem('Nome')
-
+    
     const [valorEmail, setValorEmail] = useState("")
     const [valorTelefone, setValorTelefone] = useState("")
     const [valorSenha, setValorSenha] = useState("")
     const [showAlert, setShowAleert] = useState(sessionStorage.getItem("loginAlertVisto"))
+    const [showError, setShowError] = useState("")
+    const [nomeSpan, setNomeSpan] = useState()
+    const navigate = useNavigate()
 
     const [showEmailTelefone, setShowEmailTelefone] = useState("email")
 
     function btnSubmit(e) {
         e.preventDefault()
-        if (valorSenha === "1234") {
-            console.log(valorSenha)
-            console.log(valorEmail)
-            console.log(valorTelefone)
-            console.log(nome)
+        const valorEmailBanco = localStorage.getItem("Email")
+        const valorTelefoneBanco = localStorage.getItem("Telefone")
+        const valorSenhaBanco = localStorage.getItem("Senha")
+        
+
+        if (showEmailTelefone === "email") {
+
+            if (valorEmail === valorEmailBanco) {
+
+                if (valorSenha === valorSenhaBanco) {
+                    //Em produção
+                    navigate("/")
+                } else if (valorSenha === "") {
+                    setNomeSpan(true)
+                    setShowError("senha")
+                    return
+                } else {
+                    setNomeSpan(false)
+                    setShowError("senha")
+                    return
+                }
+
+                setValorEmail("")
+                setValorSenha("") //isso terá que sair quando a área home tiver pronta. Os 3
+                setShowError("")
+
+            } else if (valorEmail === "") {
+                setNomeSpan(true)
+                setShowError("email")
+                return
+            } else {
+                setNomeSpan(false)
+                setShowError("email")
+                return
+            }
+
+        } else if (showEmailTelefone === "telefone") {
+
+            if (valorTelefone === valorTelefoneBanco) {
+
+                if (valorSenha === valorSenhaBanco) {
+                    //Em produção
+                    navigate("/")
+                } else if (valorSenha === "") {
+                    setNomeSpan(true)
+                    setShowError("senha")
+                    return
+                } else {
+                    setNomeSpan(false)
+                    setShowError("senha")
+                    return
+                }
+                console.log(valorEmailBanco)
+
+                setValorTelefone("")
+                setValorSenha("") //isso terá que sair quando a área home tiver pronta. Os 3
+                setShowError("")
+
+            } else if (valorTelefone === "") {
+                setNomeSpan(true)
+                setShowError("telefone")
+                return
+            } else {
+                setNomeSpan(false)
+                setShowError("telefone")
+                return
+            }
         }
     }
 
@@ -109,12 +175,20 @@ export default function Login() {
                                     type="email"
                                     name="email"
                                     id="email"
+                                    value={valorEmail}
                                     placeholder="seu@email.com"
                                     onChange={(e) => {
                                         setValorEmail(e.target.value)
                                     }}
                                 />
                             </div>
+                            <span className={`${showError === "email"
+                                ?
+                                styles.spanShowError
+                                :
+                                styles.spanCloseError}`}>
+                                {nomeSpan ? "Adicione um Email." : "Email incorreto"}
+                            </span>
                         </div>
                         <div className={`${styles.divInputsLogin} ${showEmailTelefone === "telefone"
                             ?
@@ -129,6 +203,7 @@ export default function Login() {
                                     type="tel"
                                     name="telefone"
                                     id="telefone"
+                                    value={valorTelefone}
                                     maxLength={11}
                                     placeholder="(00) 0000-0000"
                                     onChange={(e) => {
@@ -136,6 +211,13 @@ export default function Login() {
                                     }}
                                 />
                             </div>
+                            <span className={`${showError === "telefone"
+                                ?
+                                styles.spanShowError
+                                :
+                                styles.spanCloseError}`}>
+                                {nomeSpan ? "Adicione um telefone." : "Telefone incorreto"}
+                            </span>
                         </div>
 
                         <div className={styles.divInputsLogin}>
@@ -144,7 +226,7 @@ export default function Login() {
                                 <img src={cadeado} alt="" />
                                 <input
                                     type="password"
-                                    required
+                                    value={valorSenha}
                                     name="senha"
                                     id="senha"
                                     placeholder="......"
@@ -154,6 +236,13 @@ export default function Login() {
                                 />
 
                             </div>
+                            <span className={`${showError === "senha"
+                                ?
+                                styles.spanShowError
+                                :
+                                styles.spanCloseError}`}>
+                                {nomeSpan ? "Adicione uma senha." : "Senha incorreta"}
+                            </span>
                         </div>
                         <div className={styles.divLinkCheckbox}>
                             <div>
