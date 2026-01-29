@@ -150,7 +150,7 @@ export default function Cadastro() {
                             setBtnCopy("Copiado")
                             setMostrarAlert(false)
                             setTimeout(() => {
-                                navigate("/")
+                                navigate("/login")
                             }, 1000)
                         }
                         //else {

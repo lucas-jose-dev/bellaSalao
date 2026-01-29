@@ -67,6 +67,41 @@
     cursor: pointer;
 }
 
+/*Pós login*/
+
+.divHeaderClose {
+    display: none;
+}
+
+.sairClose {
+    display: none;
+}
+
+.nomeDoUsuario {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nomeDoUsuario p {
+    font-size: 1.3rem;
+    color: black;
+    font-weight: 600;
+}
+
+.nomeDoUsuario img {
+    height: 2rem;
+    width: 2rem;
+}
+
+.nomeDoUsuarioClose {
+    display: none;
+}
+
+/*Fim do pós login*/
+
 @media (min-width: 700px) {
     .menuHabur {
         display: none;
@@ -106,4 +141,36 @@
         padding: 1rem 0;
         text-align: center;
     }
+
+    /*Pós login*/
+    .linkButtonMoble {
+        display: none;
+    }
+
+    .nomeDoUsuarioMoble {
+        display: none;
+    }
+
+    .loginMobleClose {
+        display: none;
+    }
+
+    .sairClose {
+        display: none;
+    }
+
+    .nomeDoUsuario {
+        width: 100vw;
+        justify-content: start;
+        border-bottom: 2px solid rgb(110, 108, 108);
+        padding: 1rem 1rem;
+        gap: 1rem;
+    }
+
+    /* .nomeDoUsuario img {
+        border: solid 1px rgb(215, 84, 106);
+        border-radius: 10rem;
+    } */
+
+    /*Fim do pós login*/
 }

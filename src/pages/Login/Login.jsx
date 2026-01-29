@@ -36,6 +36,7 @@ export default function Login() {
             if (valorEmail === valorEmailBanco) {
 
                 if (valorSenha === valorSenhaBanco) {
+                    localStorage.setItem("Status", "Logado")
                     //Em produção
                     navigate("/")
                 } else if (valorSenha === "") {
@@ -67,6 +68,7 @@ export default function Login() {
             if (valorTelefone === valorTelefoneBanco) {
 
                 if (valorSenha === valorSenhaBanco) {
+                    localStorage.setItem("Status", "Logado")
                     //Em produção
                     navigate("/")
                 } else if (valorSenha === "") {
