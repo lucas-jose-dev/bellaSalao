@@ -77,26 +77,53 @@
     display: none;
 }
 
-.nomeDoUsuario {
+.PaiNomeDoUsuario {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.divNomeUsuario {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 1.5rem;
+    gap: .5rem;
 }
 
-.nomeDoUsuario p {
+.divNomeUsuario p {
     font-size: 1.3rem;
     color: black;
     font-weight: 600;
 }
 
-.nomeDoUsuario img {
+.divNomeUsuario img {
     height: 2rem;
     width: 2rem;
 }
 
+.botaoSair {
+    color: white;
+    background-color: #f8207a;
+    padding: .5rem 1.5rem;
+    border-radius: 10rem;
+    border: none;
+}
+
+.botaoSair:hover {
+    background-color: #ba386e;
+    color: rgb(239, 238, 238);
+    cursor: pointer;
+}
+
 .nomeDoUsuarioClose {
+    display: none;
+}
+
+.nomeDoSite {
     display: none;
 }
 
@@ -147,7 +174,7 @@
         display: none;
     }
 
-    .nomeDoUsuarioMoble {
+    .PaiNomeDoUsuarioMoble {
         display: none;
     }
 
@@ -159,12 +186,15 @@
         display: none;
     }
 
-    .nomeDoUsuario {
-        width: 100vw;
+    .nomeDoSite {
+        display: flex;
+    }
+
+    .divNomeUsuario {
+        width: 100%;
         justify-content: start;
         border-bottom: 2px solid rgb(110, 108, 108);
-        padding: 1rem 1rem;
-        gap: 1rem;
+        padding: 1rem 0;
     }
 
     /* .nomeDoUsuario img {

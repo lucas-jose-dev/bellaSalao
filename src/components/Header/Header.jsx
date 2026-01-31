@@ -19,28 +19,28 @@ export default function Header() {
     return (
         <>
             {confirmacaoSair && (<Alert
-            delay={100000}
-            show={confirmacaoSair}
-            sairDoAlert={true}
+                delay={100000}
+                show={confirmacaoSair}
+                sairDoAlert={true}
             >
                 <button
-                onClick={() => {
-                    setConfirmacaoSair(false)
-                }}
+                    onClick={() => {
+                        setConfirmacaoSair(false)
+                    }}
                 >Cancelar</button>
                 <button
-                 onClick={() => {
-                    localStorage.setItem("Status", "Deslogado")
-                    navigate("/")
-                    setConfirmacaoSair(false)
-                    setMenu(false)
-                 }}
+                    onClick={() => {
+                        localStorage.setItem("Status", "Deslogado")
+                        navigate("/")
+                        setConfirmacaoSair(false)
+                        setMenu(false)
+                    }}
                 >Continuar</button>
 
             </Alert>)}
             <header className={styles.header}>
                 <div className={styles.divHeader}>
-                    <div className={styles.divName}>
+                    <div className={`${styles.divName} ${statusDeLogin === "Logado" ? styles.nomeDoSite : ""}`}>
                         <img src={tesoura} alt="" style={{ color: "black" }} />
                         <a href="/">Bella Salão</a>
                     </div>
@@ -85,7 +85,7 @@ export default function Header() {
                     >
                         Login
                     </Link>
-                    <div className={`${styles.nomeDoUsuario} ${statusDeLogin === "Deslogado" ? styles.nomeDoUsuarioClose : ""}`}>
+                    <div className={`${styles.divNomeUsuario} ${statusDeLogin !== "Logado" ? styles.nomeDoUsuarioClose : ""}`}>
                         <img src={imgUsuario} alt="" />
                         <p>{localStorage.getItem("Nome")}</p>
                     </div>
@@ -136,16 +136,39 @@ export default function Header() {
                     </a>
                     <a
                         href='#link'
-                        className={`${styles.linkButton} ${statusDeLogin === "Deslogado" ? styles.sairClose : ""}`}
+                        className={`${styles.linkButton} ${statusDeLogin !== "Logado" ? styles.sairClose : ""}`}
                         onClick={() => {
                             setConfirmacaoSair(true)
                         }}>
                         Sair
                     </a>
                 </div>
-                <div className={`${styles.nomeDoUsuario} ${styles.nomeDoUsuarioMoble} ${statusDeLogin === "Deslogado" ? styles.nomeDoUsuarioClose : ""}`}>
-                    <img src={imgUsuario} alt="" />
-                    <p>{localStorage.getItem("Nome")}</p>
+                <div className={`
+                    ${styles.PaiNomeDoUsuario} 
+                    ${styles.PaiNomeDoUsuarioMoble} 
+                    ${statusDeLogin !== "Logado" ? styles.nomeDoUsuarioClose : ""}
+                    `}
+                >
+                    <div className={styles.divNomeUsuario}>
+                        <img src={imgUsuario} alt="" />
+                        <p>{localStorage.getItem("Nome")}</p>
+                    </div>
+
+                    <div className={`${styles.divName}`}>
+                        {/* <img src={tesoura} alt="" style={{ color: "black" }} /> */}
+                        <a href="/">Bella Salão</a>
+                    </div>
+                    
+                    <div>
+                        <button
+                            href='#link'
+                            className={`${styles.botaoSair}`}
+                            onClick={() => {
+                                setConfirmacaoSair(true)
+                            }}>
+                            Sair
+                        </button>
+                    </div>
                 </div>
             </header>
         </>
