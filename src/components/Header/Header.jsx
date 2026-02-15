@@ -1,11 +1,11 @@
 import tesoura from '/icons/tesoura.svg'
 import hanbur from '/icons/list.svg'
 import xSvg from '/icons/x.svg'
+import iconSair from '/icons/erros.svg'
 import imgUsuario from '/icons/estrelaCirculoLogin.svg'
 import styles from './header.module.css'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link, useNavigate } from "react-router-dom"
-import { use } from 'react'
 import Alert from '../../pages/components/Alert/Alert'
 
 export default function Header() {
@@ -16,12 +16,33 @@ export default function Header() {
 
     const navigate = useNavigate()
 
+    const ref = useRef(null);
+
+    useEffect(() => {
+        function handleClick(event) {
+            if (ref.current && !ref.current.contains(event.target)) {
+                setMenu(false);
+            }
+        }
+
+        document.addEventListener("mousedown", handleClick);
+
+        return () => {
+            document.removeEventListener("mousedown", handleClick);
+        };
+    }, [])
+
     return (
         <>
             {confirmacaoSair && (<Alert
                 delay={100000}
                 show={confirmacaoSair}
                 sairDoAlert={true}
+                iconeStatus={iconSair}
+                slogan={"Tem certea que deseja sair?"}
+                // informe={"Tem certeza que deseja sair?"}
+                estilosDivItens={styles.divAlertSair}
+                estilosDivBtn={styles.buttonsSair}
             >
                 <button
                     onClick={() => {
@@ -33,12 +54,12 @@ export default function Header() {
                         localStorage.setItem("Status", "Deslogado")
                         navigate("/")
                         setConfirmacaoSair(false)
-                        setMenu(false)
+                        // setMenu(false)
                     }}
                 >Continuar</button>
 
             </Alert>)}
-            <header className={styles.header}>
+            <header className={styles.header} ref={ref}>
                 <div className={styles.divHeader}>
                     <div className={`${styles.divName} ${statusDeLogin === "Logado" ? styles.nomeDoSite : ""}`}>
                         <img src={tesoura} alt="" style={{ color: "black" }} />
@@ -139,6 +160,7 @@ export default function Header() {
                         className={`${styles.linkButton} ${statusDeLogin !== "Logado" ? styles.sairClose : ""}`}
                         onClick={() => {
                             setConfirmacaoSair(true)
+                            setMenu(false)
                         }}>
                         Sair
                     </a>
@@ -158,7 +180,7 @@ export default function Header() {
                         {/* <img src={tesoura} alt="" style={{ color: "black" }} /> */}
                         <a href="/">Bella Salão</a>
                     </div>
-                    
+
                     <div>
                         <button
                             href='#link'

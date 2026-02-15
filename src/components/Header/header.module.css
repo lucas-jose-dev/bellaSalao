@@ -127,6 +127,32 @@
     display: none;
 }
 
+div .divAlertSair {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fffed6;
+    border: solid 3px rgb(240, 190, 7);
+}
+
+.buttonsSair {
+    display: flex;
+    gap: 2rem;
+}
+
+.buttonsSair button {
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    background-color: #eeedbf;
+    border: solid 3px rgb(240, 190, 7);
+    color: rgb(110, 74, 1);
+}
+
+.buttonsSair button:hover {
+    background-color: #eeec60;
+}
+
 /*Fim do pós login*/
 
 @media (min-width: 700px) {
